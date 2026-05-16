@@ -63,9 +63,8 @@ export default function Hero() {
 
               </div>
 
-              <a
-                href="/contactus"
-                aria-label="ContactUs"
+            <a href="#contact"
+                aria-label="Contact"
                 className="inline-block mt-10 px-5 py-2 border-2 border-amber-600 text-white rounded-[40px] transition-all duration-300 font-medium text-lg overflow-hidden group hover:px-14"
               >
                 <span className="inline-block transition-all duration-300 group-hover:tracking-[0.3em]">

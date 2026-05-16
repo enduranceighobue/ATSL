@@ -1,9 +1,9 @@
 import { CheckCircle } from "lucide-react";
 import { useState } from "react";
-import product1 from "../assets/product1.png";
-import product2 from "../assets/product2.png";
-import product3 from "../assets/product3.png";
-import product4 from "../assets/product4.png";
+import product1 from "../assets/product6.jpeg";
+import product2 from "../assets/product7.jpeg";
+import product3 from "../assets/product8.jpeg";
+import product4 from "../assets/product9.jpeg";
 import product5 from "../assets/product5.png";
 
 export default function ProductPage() {
@@ -13,7 +13,7 @@ export default function ProductPage() {
     const cards = [
         {
             title: "Trusted Accross Nigeria",
-            image: product5,
+            image: product1,
         },
         {
             title: "Occupancy Accuracy",
@@ -44,21 +44,21 @@ export default function ProductPage() {
                     />
                 </div>
             )}
-            <div className="text-center mb-10 sm:mb-12 md:mb-16">
-                <p className="text-sm font-bold text-[#8d561e] mb-4">
-                    Our Promise
+            <div className="text-center sm:mb-12 md:mb-16">
+                <p className="text-base sm:text-lg font-bold text-[#8d561e] mb-4">
+                    Our Product
                 </p>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#291a06] mb-3 sm:mb-4">
-                    Our Product
+                    The Innvista
                 </h2>
 
-                <div className="flex justify-center">
+                <div className="flex justify-center ">
                     <div className="w-16 h-1 bg-amber-600 rounded-full"></div>
                 </div>
 
-                <p className="text-base sm:text-lg text-[#8d561e] leading-relaxed mt-6 max-w-2xl mx-auto">
-                    Create Smart Solutions for Every Business Need.
+                <p className="text-base sm:text-lg text-[#8d561e] leading-relaxed mt-5 max-w-2xl mx-auto">
+                    Cloud-First, Always Available.
                 </p>
             </div>
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -66,28 +66,31 @@ export default function ProductPage() {
 
                 {/* LEFT SIDE - TEXT */}
                 <div className="order-2 md:order-1">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-                        High Value. <br />
-                        Rapid Delivery. <br />
-                        Security First.
+                    <h2 className="text-3xl md:text-4xl  font-bold text-gray-900 leading-tight">
+                        <br />
+                        Designed to meet <br />
+                        international hospitality standards.
                     </h2>
 
                     <p className="mt-4 text-gray-600 leading-relaxed">
-                        We provide high value consistency services, rapid solutions development
-                        with security embedded every step of the way. Our expert team delivers
-                        within scope and on time with the highest professionalism.
+                        The InnVista a fully integrated, cloud-ready platform purpose-built to streamline every aspect of hotel operations. From the moment a guest books a room to the time they check out, our system ensures a seamless experience for both your team and your guests.
+                        Designed with flexibility and ease of use in mind, the platform brings together front office management, online bookings, outlet operations, inventory control, and insightful reporting — all under one roof. Below is an overview of the core modules included in this solution.
                     </p>
 
                     <ul className="mt-6 space-y-2 text-gray-700 text-sm">
-                        <li>• Security embedded at every development stage</li>
-                        <li>• On-time and within-budget delivery guaranteed</li>
-                        <li>• Agile development with rapid turnaround</li>
-                        <li>• Dedicated 24/7 technical support team</li>
+                        <li>• Front Office Booking</li>
+                        <li>• ⁠Booking Engine Connected to Website</li>
+                        <li>• Room Management</li>
+                        <li>• ⁠Inventory Module</li>
+                        <li>• ⁠⁠POS/Real-Time Order Taker</li>
+                        <li>• ⁠⁠and many more</li>
                     </ul>
 
-                    <button className="mt-6 px-6 py-3 bg-[#291a06] text-white rounded-[40px] hover:bg-gray-800 transition">
+                    <a href="#contact">
+                        <button className="mt-6 px-6 py-3 bg-[#291a06] text-white rounded-[40px] hover:bg-[#e2a354] transition">
                         Book A Demo
                     </button>
+                    </a>
                 </div>
 
                 {/* RIGHT SIDE - IMAGE CARDS */}
@@ -97,7 +100,6 @@ export default function ProductPage() {
 
                             {/* TITLE OUTSIDE CARD */}
                             <h3 className="font-semibold text-lg text-gray-900">
-                                {card.title}
                             </h3>
 
                             {/* IMAGE CARD */}
