@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Coffee } from "lucide-react";
-import Nav from "../pages/Nav";
 import { Link } from "react-router-dom";
 import Heroinnvista from "../innvista/HeroInnvista";
 import Features from "../innvista/Features";
-import Faq from "../innvista/Faq";
+import FAQ from "../innvista/FAQ";
 import Pricing from "../innvista/Pricing";
 import ContactUs from "../pages/ContactUs";
 import Demo from "../innvista/Demo";
@@ -53,7 +52,7 @@ export default function Innvista() {
   return (
     <>
 
-      <Nav />
+      
       <header
         className={`w-full z-50 transition-all duration-300 ${
           isScrolled
@@ -69,7 +68,7 @@ export default function Innvista() {
               <div className="flex items-center space-x-2 cursor-pointer">
                
                 <span className="text-2xl font-bold text-[#f1efec] ml-10">
-                  Innvista
+                  Inn<span className="text-[#d4a017]">vista</span>
                 </span>
               </div>
             </Link>
@@ -193,7 +192,7 @@ export default function Innvista() {
         </header>
         <Heroinnvista/>
         <Features/>
-        <Faq/>
+        <FAQ/>
         <Pricing/>
         <Demo/>
         <ContactUs/>
