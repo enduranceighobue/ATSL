@@ -1,5 +1,10 @@
 import { CheckCircle } from "lucide-react";
 import { useState } from "react";
+import product1 from "../assets/product1.png";
+import product2 from "../assets/product2.png";
+import product3 from "../assets/product3.png";
+import product4 from "../assets/product4.png";
+import product5 from "../assets/product5.png";
 
 export default function ProductPage() {
 
@@ -8,19 +13,19 @@ export default function ProductPage() {
     const cards = [
         {
             title: "Trusted Accross Nigeria",
-            image: "/src/assets/product5.png",
+            image: product5,
         },
         {
             title: "Occupancy Accuracy",
-            image: "/src/assets/product1.png",
+            image: product2,
         },
         {
             title: "Report Generation",
-            image: "/src/assets/product3.png",
+            image: product3,
         },
         {
             title: "POS Integration",
-            image: "/src/assets/product4.png",
+            image: product4,
         },
     ];
 
