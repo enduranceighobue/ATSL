@@ -56,14 +56,14 @@ export default function Services() {
 
                     </div>
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center justify-items-center sm:gap-8">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
                         {services.map((service) => {
                         const Icon = service.icon;
                         return (
                             <Link
                                 key={service.href}
                                 to={service.href}
-                                className="bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 w-full"
+                                className="bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 w-full h-full"
                             >
                                 <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#f5e8d7] rounded-lg flex items-center justify-center mb-4 sm:mb-6">
                                     <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-amber-700" />
