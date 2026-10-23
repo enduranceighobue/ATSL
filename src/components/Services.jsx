@@ -1,40 +1,29 @@
 
-import { Code, Smartphone, Cloud, Shield, Database, Zap } from 'lucide-react';
-
-
+import { Link } from "react-router-dom";
+import { BedDouble, RefreshCw, Users } from "lucide-react";
 
 export default function Services() {
-
     const services = [
         {
-            icon: Code,
-            title: 'Web Development',
-            description: 'Custom web applications built with modern frameworks.',
+            icon: BedDouble,
+            title: "Hospitality Management",
+            description:
+                "InnVista runs bookings, rooms, point of sale, and leak alerts for the full guest stay.",
+            href: "/innvista",
         },
         {
-            icon: Smartphone,
-            title: 'Mobile Apps',
-            description: 'Native and cross-platform mobile applications for iOS devices.',
+            icon: RefreshCw,
+            title: "Channel Management",
+            description:
+                "PlogInn keeps OTA rates and room inventory aligned from one screen.",
+            href: "/ploginn",
         },
         {
-            icon: Cloud,
-            title: 'Cloud Solutions',
-            description: 'Scalable cloud infrastructure and migration services for your business.',
-        },
-        {
-            icon: Shield,
-            title: 'Cybersecurity',
-            description: 'Comprehensive security solutions to protect your digital assets and data.',
-        },
-        {
-            icon: Database,
-            title: 'Database Management',
-            description: 'Expert database design, optimization, and management services.',
-        },
-        {
-            icon: Zap,
-            title: 'IT Consulting',
-            description: 'Strategic technology consulting to drive your business forward.',
+            icon: Users,
+            title: "People, Payroll and Performance",
+            description:
+                "StafPay connects recruitment, onboarding, and pay, including automated state PAYE.",
+            href: "/stafpay",
         },
     ];
 
@@ -63,23 +52,25 @@ export default function Services() {
                             {/* <div className="w-16 h-1 bg-gray00 rounded-full"></div>  */}
                         </div>
 
-                        <p className="text-base sm:text-lg text-[#8d561e] leading-relaxed mt-6 max-w-2xl mx-auto">End-to-end technology solutions tailored to move your business forward.</p>
+                        <p className="text-base sm:text-lg text-[#8d561e] leading-relaxed mt-6 max-w-2xl mx-auto">Hospitality management, channel management, and people operations.</p>
 
                     </div>
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center justify-items-center sm:gap-8">          {services.map((service, index) => {
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center justify-items-center sm:gap-8">
+                        {services.map((service) => {
                         const Icon = service.icon;
                         return (
-                            <div
-                                key={index}
-                                className="bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300"
+                            <Link
+                                key={service.href}
+                                to={service.href}
+                                className="bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 w-full"
                             >
                                 <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#f5e8d7] rounded-lg flex items-center justify-center mb-4 sm:mb-6">
                                     <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-amber-700" />
                                 </div>
                                 <h3 className="text-xl sm:text-2xl font-bold text-[#291a06] mb-2 sm:mb-3">{service.title}</h3>
                                 <p className="text-sm sm:text-base text-[#291a06] leading-relaxed">{service.description}</p>
-                            </div>
+                            </Link>
                         );
                     })}
                     </div>

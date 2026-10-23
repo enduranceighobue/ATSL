@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
-import Logo from "../assets/atsl-logo.svg";
-import menu from "../assets/menu.svg";
-import x from "../assets/x.svg";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { ChevronDown, Menu, X } from "lucide-react";
+import Logo from "../assets/atsl.jpeg";
+import { products } from "../data/products";
 
 import Hero from "../components/Hero";
 import Service from "../components/Services";
@@ -11,7 +12,10 @@ import ProductPage from "../components/ProductPage";
 
 export default function Home() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isProductsOpen, setIsProductsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const dropdownRef = useRef(null);
+    const mobileDropdownRef = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -29,6 +33,34 @@ export default function Home() {
         };
     }, []);
 
+    useEffect(() => {
+        if (!isProductsOpen) return undefined;
+
+        const handleClickOutside = (event) => {
+            const target = event.target;
+            if (dropdownRef.current?.contains(target)) return;
+            if (mobileDropdownRef.current?.contains(target)) return;
+            setIsProductsOpen(false);
+        };
+
+        const handleEscape = (event) => {
+            if (event.key === "Escape") setIsProductsOpen(false);
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("keydown", handleEscape);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("keydown", handleEscape);
+        };
+    }, [isProductsOpen]);
+
+    const closeMenus = () => {
+        setIsProductsOpen(false);
+        setIsMobileMenuOpen(false);
+    };
+
     return (
         <>
             <header
@@ -39,8 +71,12 @@ export default function Home() {
                 }`}
             >
                 <nav className="container w-[90%] mx-auto flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                        <img src={Logo} alt="Logo" className="w-12 h-15" />
+                    <div className="flex h-18 w-32 items-center overflow-hidden">
+                        <img
+                            src={Logo}
+                            alt="ATSL"
+                            className="h-full w-full origin-center scale-[2.05] object-cover object-center"
+                        />
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -53,17 +89,9 @@ export default function Home() {
                         aria-label="Toggle menu"
                     >
                         {isMobileMenuOpen ? (
-                            <img
-                                src={x}
-                                alt="Close"
-                                className="w-6 h-6"
-                            />
+                            <X className="w-6 h-6 text-white" aria-hidden="true" />
                         ) : (
-                            <img
-                                src={menu}
-                                alt="Menu"
-                                className="w-6 h-6"
-                            />
+                            <Menu className="w-6 h-6 text-white" aria-hidden="true" />
                         )}
                     </button>
 
@@ -87,15 +115,43 @@ export default function Home() {
                             Services
                         </a>
 
-                        {/* Products Link */}
-                        <a
-                            href="#product"
-                            className={`font-medium transition-colors hover:text-amber-700 ${
-                                scrolled ? "text-white" : "text-white"
-                            }`}
-                        >
-                            Product
-                        </a>
+                        <div ref={dropdownRef} className="relative">
+                            <button
+                                type="button"
+                                onClick={() => setIsProductsOpen((open) => !open)}
+                                className="flex items-center gap-1 font-medium text-white transition-colors hover:text-amber-700"
+                                aria-expanded={isProductsOpen}
+                                aria-haspopup="true"
+                            >
+                                Products
+                                <ChevronDown
+                                    className={`h-4 w-4 transition-transform duration-300 ${
+                                        isProductsOpen ? "rotate-180" : ""
+                                    }`}
+                                    aria-hidden="true"
+                                />
+                            </button>
+
+                            {isProductsOpen && (
+                                <div className="absolute top-full left-0 z-50 mt-3 w-72 rounded-xl border border-amber-100 bg-white py-2 shadow-xl">
+                                    {products.map((product) => (
+                                        <Link
+                                            key={product.slug}
+                                            to={product.href}
+                                            className="block px-4 py-3 hover:bg-amber-50"
+                                            onClick={closeMenus}
+                                        >
+                                            <span className="block font-semibold text-[#291a06]">
+                                                {product.displayName}
+                                            </span>
+                                            <span className="block text-sm text-[#8d561e]">
+                                                {product.tagline}
+                                            </span>
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
 
                         <a
                             href="#contact"
@@ -140,20 +196,42 @@ export default function Home() {
                                 Services
                             </a>
 
-                            {/* Products Link */}
-                            <a
-                                href="#product"
-                                className={`block ${
-                                    scrolled
-                                        ? "text-[#291a06]"
-                                        : "text-[#291a06]"
-                                } hover:text-amber-700 font-medium transition-colors py-2`}
-                                onClick={() =>
-                                    setIsMobileMenuOpen(false)
-                                }
-                            >
-                                Product
-                            </a>
+                            <div ref={mobileDropdownRef}>
+                                <button
+                                    type="button"
+                                    className="flex w-full items-center justify-between py-2 font-medium text-[#291a06] transition-colors hover:text-amber-700"
+                                    onClick={() => setIsProductsOpen((open) => !open)}
+                                    aria-expanded={isProductsOpen}
+                                >
+                                    Products
+                                    <ChevronDown
+                                        className={`h-4 w-4 transition-transform duration-300 ${
+                                            isProductsOpen ? "rotate-180" : ""
+                                        }`}
+                                        aria-hidden="true"
+                                    />
+                                </button>
+
+                                {isProductsOpen && (
+                                    <div className="mt-1 space-y-1 pl-3">
+                                        {products.map((product) => (
+                                            <Link
+                                                key={product.slug}
+                                                to={product.href}
+                                                className="block py-2 text-[#291a06] hover:text-amber-700"
+                                                onClick={closeMenus}
+                                            >
+                                                <span className="block font-semibold">
+                                                    {product.displayName}
+                                                </span>
+                                                <span className="block text-sm text-[#8d561e]">
+                                                    {product.tagline}
+                                                </span>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
 
                             <a
                                 href="#contact"

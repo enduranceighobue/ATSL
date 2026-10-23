@@ -1,14 +1,5 @@
-import { Mail, Phone, MapPin } from "lucide-react";
-import { FaInstagram } from "react-icons/fa";
-import logo from "../assets/atsl-logo.svg";
-
-const scrollToSection = (sectionId) => {
-  const element = document.getElementById(sectionId);
-
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-  }
-};
+import { FaInstagram, FaFacebookF, FaTiktok, FaYoutube } from "react-icons/fa6";
+import { email, offices } from "../data/company";
 
 export default function Footer() {
   return (
@@ -18,44 +9,57 @@ export default function Footer() {
           <div className="flex justify-center">
             {/* Company Info */}
             <div className="col-span-1 md:col-span-2 flex flex-col items-center text-center">
-              {/* <div className="flex items-center space-x-2 mb-6">
-                <img src={logo} className="w-12 h-15" alt="" />
-              </div> */}
-              <address className="space-y-4 not-italic">
-                <div className="flex items-center justify-center gap-3">
-                  <a
-                    href="https://www.instagram.com/adaptive.tech"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-[#f5e8d7] hover:text-pink-400 transition-colors"
-                  >
-                    <FaInstagram className="h-5 w-5" />
-                    Adaptive Tech Solutions Limited.
-                  </a>
-                </div>
-                {/* <div className="flex items-center justify-center gap-3">
-                  <a
-                    href="https://www.instagram.com/adaptive.tech"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-[#f5e8d7] hover:text-pink-400 transition-colors"
-                  >
-                    <Instagram className="h-5 w-5" />
-                    <span className="text-white">@atslng</span>
-                  </a>
-                </div> */}
-
-                {/* <div className="flex items-center justify-center gap-3">
-                  <MapPin
-                    className="h-5 w-5 text-[#d2b48c]"
-                    aria-hidden="true"
-                  />
-
-                  <span className="text-[#f5e8d7]">
-                    San Francisco, CA
-                  </span>
-                </div> */}
-              </address>
+              <p className="text-[#f5e8d7] mb-3">
+                Adaptive Tech Solutions Limited.
+              </p>
+              <p className="text-[#d2b48c] text-sm mb-4">{offices}</p>
+              <a
+                href={`mailto:${email}`}
+                className="mb-6 text-sm text-[#f5e8d7] hover:text-white"
+              >
+                {email}
+              </a>
+              <nav
+                className="flex items-center justify-center gap-4"
+                aria-label="Social media"
+              >
+                <a
+                  href="https://www.instagram.com/atslng"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="w-11 h-11 rounded-full border border-[#d2b48c]/40 flex items-center justify-center text-[#f5e8d7] hover:text-white hover:bg-gradient-to-br hover:from-purple-600 hover:via-pink-500 hover:to-orange-400 hover:border-transparent transition-all duration-300"
+                >
+                  <FaInstagram className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.facebook.com/share/1Cqi2fTx7D/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="w-11 h-11 rounded-full border border-[#d2b48c]/40 flex items-center justify-center text-[#f5e8d7] hover:text-white hover:bg-[#1877F2] hover:border-transparent transition-all duration-300"
+                >
+                  <FaFacebookF className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.tiktok.com/@atslng"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="TikTok"
+                  className="w-11 h-11 rounded-full border border-[#d2b48c]/40 flex items-center justify-center text-[#f5e8d7] hover:text-white hover:bg-black hover:border-transparent transition-all duration-300"
+                >
+                  <FaTiktok className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://youtube.com/@atslng?si=vzKePumah89hagdB"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                  className="w-11 h-11 rounded-full border border-[#d2b48c]/40 flex items-center justify-center text-[#f5e8d7] hover:text-white hover:bg-[#FF0000] hover:border-transparent transition-all duration-300"
+                >
+                  <FaYoutube className="h-5 w-5" />
+                </a>
+              </nav>
             </div>
 
           </div>
