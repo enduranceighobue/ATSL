@@ -53,12 +53,12 @@ const services = [
     },
 ];
 
-const STATS = [
-    { value: "20+", label: "Projects Delivered" },
-    { value: "20+", label: "Enterprise Clients" },
-    { value: "99%", label: "Uptime Guaranteed" },
-    { value: "24/7", label: "Support Available" },
-];
+// const STATS = [
+//     { value: "20+", label: "Projects Delivered" },
+//     { value: "20+", label: "Enterprise Clients" },
+//     { value: "99%", label: "Uptime Guaranteed" },
+//     { value: "24/7", label: "Support Available" },
+// ];
 
 export default function Services() {
     return (
@@ -120,7 +120,7 @@ export default function Services() {
                 </div>
             </section>
 
-            <div className="bg-[#291a06] px-4 py-12 sm:px-6 sm:py-16">
+            {/* <div className="bg-[#291a06] px-4 py-12 sm:px-6 sm:py-16">
                 <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 text-center sm:gap-10 lg:grid-cols-4">
                     {STATS.map((stat) => (
                         <div
@@ -137,7 +137,7 @@ export default function Services() {
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> */}
         </>
     );
 }
