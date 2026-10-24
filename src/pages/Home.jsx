@@ -255,7 +255,7 @@ export default function Home() {
                 <Hero />
             </div>
 
-            <div id="services">
+            <div id="services" className="scroll-mt-24">
                 <Service />
             </div>
 
