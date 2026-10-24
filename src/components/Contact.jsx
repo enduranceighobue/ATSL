@@ -305,7 +305,7 @@ export default function Contact() {
 
             <section className="py-16 px-4 sm:px-6 bg-[#fff7e3] scroll-mt-20">
 
-                <div className="w-11/12 mx-auto">
+                <div className="mx-auto w-full sm:w-11/12">
 
                     <div className="text-center mb-12">
 
@@ -334,7 +334,7 @@ export default function Contact() {
                     <div className="grid lg:grid-cols-2 gap-8">
 
                         {/* Contact Info */}
-                        <div className="bg-white rounded-lg shadow-md border-t-4 border-[#291a06] p-8">
+                        <div className="bg-white rounded-lg shadow-md border-t-4 border-[#291a06] p-5 sm:p-8">
 
                             <div className="space-y-8">
 
@@ -371,7 +371,7 @@ export default function Contact() {
                                                     href={whatsappLink(phone.e164)}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="flex items-center gap-2 text-gray-600 hover:text-amber-700"
+                                                    className="flex items-center gap-2 whitespace-nowrap text-sm leading-none text-gray-600 hover:text-amber-700 sm:text-base"
                                                 >
                                                     {index === 0 ? (
                                                         <FaWhatsapp
@@ -384,7 +384,7 @@ export default function Contact() {
                                                             aria-hidden="true"
                                                         />
                                                     )}
-                                                    {phone.display}
+                                                    <span>{phone.display}</span>
                                                 </a>
                                             ))}
                                         </div>

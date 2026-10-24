@@ -50,7 +50,7 @@ export default function Hero() {
                 Simple
               </p>
 
-              <h1 className="mt-6 font-['Fraunces'] text-5xl sm:text-6xl lg:text-7xl font-medium leading-[0.95] tracking-tight">
+              <h1 className="mt-6 font-['Fraunces'] text-4xl sm:text-6xl lg:text-7xl font-medium leading-[0.95] tracking-tight">
                 Cloud-based
                 <span className="block italic font-normal text-amber-100">
                   solutions.
