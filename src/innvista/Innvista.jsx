@@ -68,7 +68,7 @@ export default function Innvista() {
               <div className="flex items-center space-x-2 cursor-pointer">
                
                 <span className="text-2xl font-bold text-[#f1efec] ml-10">
-                  Inn<span className="text-[#d4a017]">vista</span>
+                  Inn<span className="text-[#cd9432]">vista</span>
                 </span>
               </div>
             </Link>

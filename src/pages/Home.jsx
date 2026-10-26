@@ -1,16 +1,18 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
-import Logo from "../assets/atsl.jpeg";
+import Logo from "../assets/atsl.png";
 import { products } from "../data/products";
 
 import Hero from "../components/Hero";
 import Service from "../components/Services";
 import Contact from "../components/Contact";
+import Faqs from "../components/Faqs";
 import Footer from "../components/Footer";
 import ProductPage from "../components/ProductPage";
 
 export default function Home() {
+    const location = useLocation();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isProductsOpen, setIsProductsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -32,6 +34,16 @@ export default function Home() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
+    useEffect(() => {
+        if (location.hash !== "#faqs") return undefined;
+
+        const frame = requestAnimationFrame(() => {
+            document.getElementById("faqs")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+
+        return () => cancelAnimationFrame(frame);
+    }, [location.hash]);
 
     useEffect(() => {
         if (!isProductsOpen) return undefined;
@@ -70,19 +82,22 @@ export default function Home() {
                         : "bg-transparent shadow-md backdrop-blur-md"
                 }`}
             >
-                <nav className="container w-[90%] mx-auto flex items-center justify-between">
-                    <div className="flex h-18 w-32 items-center overflow-hidden">
+                <nav className="container mx-auto flex w-[90%] items-center">
+                    <div className="flex h-18 w-32 shrink-0 items-center overflow-hidden">
                         <img
                             src={Logo}
                             alt="ATSL"
                             className="h-full w-full origin-center scale-[2.05] object-cover object-center"
                         />
                     </div>
+                    <p className="ml-3 min-w-0 font-['Fraunces'] text-xs font-normal italic leading-snug text-white sm:ml-4 sm:text-sm lg:text-base">
+                        Adaptive Tech Solutions Limited
+                    </p>
 
                     {/* Mobile Menu Button */}
                     <button
                         type="button"
-                        className="lg:hidden text-gray-700 p-2"
+                        className="ml-auto p-2 text-gray-700 lg:hidden"
                         onClick={() =>
                             setIsMobileMenuOpen(!isMobileMenuOpen)
                         }
@@ -96,21 +111,10 @@ export default function Home() {
                     </button>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden lg:flex items-center gap-8 xl:gap-12 text-white">
-                        <a
-                            href="#home"
-                            className={`font-medium transition-colors hover:text-amber-700 ${
-                                scrolled ? "text-white" : "text-white"
-                            }`}
-                        >
-                            Home
-                        </a>
-
+                    <div className="ml-auto hidden items-center gap-8 text-white lg:flex xl:gap-12">
                         <a
                             href="#services"
-                            className={`font-medium transition-colors hover:text-amber-700 ${
-                                scrolled ? "text-white" : "text-white"
-                            }`}
+                            className="font-['Fraunces'] font-normal italic text-white transition-colors hover:text-amber-700"
                         >
                             Services
                         </a>
@@ -119,7 +123,7 @@ export default function Home() {
                             <button
                                 type="button"
                                 onClick={() => setIsProductsOpen((open) => !open)}
-                                className="flex items-center gap-1 font-medium text-white transition-colors hover:text-amber-700"
+                                className="flex items-center gap-1 font-['Fraunces'] font-normal italic text-white transition-colors hover:text-amber-700"
                                 aria-expanded={isProductsOpen}
                                 aria-haspopup="true"
                             >
@@ -133,20 +137,15 @@ export default function Home() {
                             </button>
 
                             {isProductsOpen && (
-                                <div className="absolute top-full left-0 z-50 mt-3 w-72 rounded-xl border border-amber-100 bg-white py-2 shadow-xl">
+                                <div className="absolute top-full left-0 z-50 mt-3 w-40 rounded-xl border border-amber-100 bg-white py-2 shadow-xl">
                                     {products.map((product) => (
                                         <Link
                                             key={product.slug}
                                             to={product.href}
-                                            className="block px-4 py-3 hover:bg-amber-50"
+                                            className="block px-4 py-2 font-['Fraunces'] font-normal italic text-[#291a06] transition-colors hover:bg-amber-50 hover:text-amber-700"
                                             onClick={closeMenus}
                                         >
-                                            <span className="block font-semibold text-[#291a06]">
-                                                {product.displayName}
-                                            </span>
-                                            <span className="block text-sm text-[#8d561e]">
-                                                {product.tagline}
-                                            </span>
+                                            {product.name}
                                         </Link>
                                     ))}
                                 </div>
@@ -155,9 +154,7 @@ export default function Home() {
 
                         <a
                             href="#contact"
-                            className={`font-medium transition-colors hover:text-amber-700 ${
-                                scrolled ? "text-white" : "text-white"
-                            }`}
+                            className="font-['Fraunces'] font-normal italic text-white transition-colors hover:text-amber-700"
                         >
                             Contact Us
                         </a>
@@ -169,26 +166,8 @@ export default function Home() {
                     <div className="lg:hidden bg-white border-t border-gray-200">
                         <div className="px-4 py-4 space-y-4">
                             <a
-                                href="#home"
-                                className={`block ${
-                                    scrolled
-                                        ? "text-[#291a06]"
-                                        : "text-[#291a06]"
-                                } hover:text-amber-700 font-medium transition-colors py-2`}
-                                onClick={() =>
-                                    setIsMobileMenuOpen(false)
-                                }
-                            >
-                                Home
-                            </a>
-
-                            <a
                                 href="#services"
-                                className={`block ${
-                                    scrolled
-                                        ? "text-[#291a06]"
-                                        : "text-[#291a06]"
-                                } hover:text-amber-700 font-medium transition-colors py-2`}
+                                className="block py-2 font-['Fraunces'] font-normal italic text-[#291a06] transition-colors hover:text-amber-700"
                                 onClick={() =>
                                     setIsMobileMenuOpen(false)
                                 }
@@ -199,7 +178,7 @@ export default function Home() {
                             <div ref={mobileDropdownRef}>
                                 <button
                                     type="button"
-                                    className="flex w-full items-center justify-between py-2 font-medium text-[#291a06] transition-colors hover:text-amber-700"
+                                    className="flex w-full items-center justify-between py-2 font-['Fraunces'] font-normal italic text-[#291a06] transition-colors hover:text-amber-700"
                                     onClick={() => setIsProductsOpen((open) => !open)}
                                     aria-expanded={isProductsOpen}
                                 >
@@ -218,15 +197,10 @@ export default function Home() {
                                             <Link
                                                 key={product.slug}
                                                 to={product.href}
-                                                className="block py-2 text-[#291a06] hover:text-amber-700"
+                                                className="block py-2 font-['Fraunces'] font-normal italic text-[#291a06] transition-colors hover:text-amber-700"
                                                 onClick={closeMenus}
                                             >
-                                                <span className="block font-semibold">
-                                                    {product.displayName}
-                                                </span>
-                                                <span className="block text-sm text-[#8d561e]">
-                                                    {product.tagline}
-                                                </span>
+                                                {product.name}
                                             </Link>
                                         ))}
                                     </div>
@@ -235,11 +209,7 @@ export default function Home() {
 
                             <a
                                 href="#contact"
-                                className={`block ${
-                                    scrolled
-                                        ? "text-[#291a06]"
-                                        : "text-[#291a06]"
-                                } hover:text-amber-700 font-medium transition-colors py-2`}
+                                className="block py-2 font-['Fraunces'] font-normal italic text-[#291a06] transition-colors hover:text-amber-700"
                                 onClick={() =>
                                     setIsMobileMenuOpen(false)
                                 }
@@ -255,18 +225,19 @@ export default function Home() {
                 <Hero />
             </div>
 
-            <div id="services" className="scroll-mt-24">
+            <div id="services" className="scroll-mt-[4.5rem]">
                 <Service />
             </div>
 
-            <div id="product">
+            <div id="product" className="scroll-mt-[4.5rem]">
                 <ProductPage />
             </div>
 
-            <div id="contact">
+            <div id="contact" className="scroll-mt-[4.5rem]">
                 <Contact />
             </div>
 
+            <Faqs />
             <Footer />
         </>
     );

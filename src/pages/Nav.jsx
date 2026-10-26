@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
-import Logo from "../assets/atsl.jpeg";
+import Logo from "../assets/atsl.png";
 import { products } from "../data/products";
 
 export default function Navbar() {
@@ -44,23 +44,24 @@ export default function Navbar() {
 
   return (
     <header className="bg-[#291a06] w-full z-50 relative">
-      <nav className="container w-[90%] mx-auto flex items-center justify-between">
-        
-        {/* Logo */}
+      <nav className="container mx-auto flex w-[90%] items-center">
         <Link to="/" aria-label="Home" className="block shrink-0">
-          <div className="flex h-32 w-48 items-center overflow-hidden sm:h-40 sm:w-60">
+          <div className="flex h-18 w-32 shrink-0 items-center overflow-hidden">
             <img
               src={Logo}
               alt="ATSL"
-              className="h-full w-full origin-center scale-100 object-contain object-center"
+              className="h-full w-full origin-center scale-[2.05] object-cover object-center"
             />
           </div>
         </Link>
+        <p className="ml-3 min-w-0 font-['Fraunces'] text-xs font-normal italic leading-snug text-white sm:ml-4 sm:text-sm lg:text-base">
+          Adaptive Tech Solutions Limited
+        </p>
 
         {/* Mobile Menu Button */}
         <button
           type="button"
-          className="lg:hidden text-gray-700 p-2"
+          className="ml-auto p-2 text-gray-700 lg:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -72,18 +73,18 @@ export default function Navbar() {
         </button>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-8 xl:gap-12">
+        <div className="ml-auto hidden items-center gap-8 lg:flex xl:gap-12">
 
           <Link
             to="/"
-            className="text-white hover:text-amber-700 font-medium transition-colors"
+            className="font-['Fraunces'] font-normal italic text-white transition-colors hover:text-amber-700"
           >
             Home
           </Link>
 
           <Link
             to="/service"
-            className="text-white hover:text-amber-700 font-medium transition-colors"
+            className="font-['Fraunces'] font-normal italic text-white transition-colors hover:text-amber-700"
           >
             Services
           </Link>
@@ -96,7 +97,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={handleToggle}
-              className="flex items-center gap-1 text-white hover:text-amber-700 font-medium transition-colors"
+              className="flex items-center gap-1 font-['Fraunces'] font-normal italic text-white transition-colors hover:text-amber-700"
             >
               Products
 
@@ -109,16 +110,15 @@ export default function Navbar() {
             </button>
 
             {isOpen && (
-              <div className="absolute top-full left-0 mt-3 w-72 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+              <div className="absolute top-full left-0 z-50 mt-3 w-40 rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
                 {products.map((product) => (
                   <Link
                     key={product.slug}
                     to={product.href}
-                    className="block px-4 py-3 text-[#291a06] hover:bg-amber-50 hover:text-amber-700 transition-colors"
+                    className="block px-4 py-2 font-['Fraunces'] font-normal italic text-[#291a06] transition-colors hover:bg-amber-50 hover:text-amber-700"
                     onClick={() => setIsOpen(false)}
                   >
-                    <span className="block font-semibold">{product.displayName}</span>
-                    <span className="block text-sm text-[#8d561e]">{product.tagline}</span>
+                    {product.name}
                   </Link>
                 ))}
               </div>
@@ -127,7 +127,7 @@ export default function Navbar() {
 
           <Link
             to="/contactUs"
-            className="text-white hover:text-amber-700 font-medium transition-colors"
+            className="font-['Fraunces'] font-normal italic text-white transition-colors hover:text-amber-700"
           >
             Contact Us
           </Link>
@@ -141,7 +141,7 @@ export default function Navbar() {
 
             <Link
               to="/"
-              className="block text-[#291a06] hover:text-amber-700 font-medium transition-colors py-2"
+              className="block py-2 font-['Fraunces'] font-normal italic text-[#291a06] transition-colors hover:text-amber-700"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
@@ -149,7 +149,7 @@ export default function Navbar() {
 
             <Link
               to="/service"
-              className="block text-[#291a06] hover:text-amber-700 font-medium transition-colors py-2"
+              className="block py-2 font-['Fraunces'] font-normal italic text-[#291a06] transition-colors hover:text-amber-700"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Services
@@ -159,7 +159,7 @@ export default function Navbar() {
             <div ref={mobileDropdownRef}>
               <button
                 type="button"
-                className="flex items-center justify-between w-full text-[#291a06] hover:text-amber-700 font-medium transition-colors py-2"
+                className="flex w-full items-center justify-between py-2 font-['Fraunces'] font-normal italic text-[#291a06] transition-colors hover:text-amber-700"
                 onClick={handleToggle}
               >
                 Products
@@ -178,14 +178,13 @@ export default function Navbar() {
                     <Link
                       key={product.slug}
                       to={product.href}
-                      className="block w-full text-left text-[#291a06] hover:text-amber-700 transition-colors py-2"
+                      className="block w-full py-2 text-left font-['Fraunces'] font-normal italic text-[#291a06] transition-colors hover:text-amber-700"
                       onClick={() => {
                         setIsOpen(false);
                         setIsMobileMenuOpen(false);
                       }}
                     >
-                      <span className="block font-semibold">{product.displayName}</span>
-                      <span className="block text-sm text-[#8d561e]">{product.tagline}</span>
+                      {product.name}
                     </Link>
                   ))}
                 </div>
@@ -194,7 +193,7 @@ export default function Navbar() {
 
             <Link
               to="/contactUs"
-              className="block text-[#291a06] hover:text-amber-700 font-medium transition-colors py-2"
+              className="block py-2 font-['Fraunces'] font-normal italic text-[#291a06] transition-colors hover:text-amber-700"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact Us

@@ -18,7 +18,7 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative min-h-screen overflow-hidden">
+      <section className="relative h-svh overflow-hidden">
 
         {/* Background Images */}
         {images.map((image, index) => (
@@ -38,11 +38,10 @@ export default function Hero() {
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/30"></div>
 
         {/* Hero Content */}
-        <div className="relative z-20 min-h-screen flex items-center">
-          <div className="w-[90%] mx-auto container py-28">
-
-            <div className="max-w-2xl text-white">
-              <p className="font-['Outfit'] text-[11px] sm:text-xs uppercase tracking-[0.42em] text-amber-400">
+        <div className="relative z-20 flex h-full items-center justify-center">
+          <div className="container mx-auto w-[90%] text-center">
+            <div className="mx-auto max-w-2xl text-white">
+              <p className="font-['Outfit'] text-xs uppercase tracking-[0.42em] text-amber-400 sm:text-sm">
                 Seamless
                 <span className="mx-3 text-amber-500/80">|</span>
                 Secure
@@ -50,35 +49,14 @@ export default function Hero() {
                 Simple
               </p>
 
-              <h1 className="mt-6 font-['Fraunces'] text-4xl sm:text-6xl lg:text-7xl font-medium leading-[0.95] tracking-tight">
-                Cloud-based
-                <span className="block italic font-normal text-amber-100">
-                  solutions.
-                </span>
+              <h1 className="mt-4 font-['Fraunces'] text-2xl font-normal italic leading-tight tracking-tight text-amber-100 sm:text-3xl lg:text-4xl">
+                solutions.
               </h1>
-
-              <p className="mt-6 font-['Outfit'] text-sm sm:text-base uppercase tracking-[0.22em] text-white/80">
-                Adaptive Tech Solutions Limited
-              </p>
-
-              <div className="mt-6 max-w-xl space-y-4 text-sm sm:text-base font-light leading-relaxed text-gray-200">
-                <p>
-                  Is your number one Tech Solutions Company that provides
-                  simple, safe and effective solutions for all your business
-                  processes, complexities and needs.
-                </p>
-
-                <p>
-                  Our goal is to provide high value consistency services, rapid
-                  solutions development with security embedded every step of the
-                  way.
-                </p>
-              </div>
 
               <a
                 href="#contact"
                 aria-label="Contact"
-                className="mt-10 inline-flex items-center gap-3 rounded-full bg-amber-600 px-7 py-3 font-['Outfit'] text-sm uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-amber-500 hover:gap-5"
+                className="mt-5 inline-flex items-center gap-1 rounded-full bg-amber-600 px-2.5 py-1 font-['Outfit'] text-[10px] uppercase leading-none tracking-[0.12em] text-white transition-all duration-300 hover:gap-2 hover:bg-amber-500"
               >
                 Get Started
                 <span aria-hidden="true">→</span>

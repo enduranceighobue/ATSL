@@ -4,11 +4,9 @@ import {
   Building2,
   CalendarCheck,
   CreditCard,
-  Droplets,
   Phone,
   RefreshCw,
   UserPlus,
-  UtensilsCrossed,
   Wallet,
 } from "lucide-react";
 import innvistaLogo from "../assets/innvista.jpeg";
@@ -20,6 +18,9 @@ import innvistaScreen3 from "../assets/product8.jpeg";
 import innvistaScreen4 from "../assets/product9.jpeg";
 
 export const YOUTUBE_CHANNEL = "https://www.youtube.com/@atslng";
+
+/** Stand-in from the ATSL channel until each product has its own video. */
+export const PLACEHOLDER_YOUTUBE_ID = "iKC-tP2pbTo";
 
 const paymentsHighlight = {
   icon: CreditCard,
@@ -50,31 +51,35 @@ export const products = [
         title: "Room management",
         text: "See occupancy, arrivals, and room status without a second system.",
       },
-      {
-        icon: UtensilsCrossed,
-        title: "POS",
-        text: "Outlet orders and charges stay with the guest folio.",
-      },
-      {
-        icon: Droplets,
-        title: "Leak alerts",
-        text: "Flag unusual usage so the property can act before it becomes a loss.",
-      },
-      {
-        icon: Wallet,
-        title: "NGN and USD billing",
-        text: "Bill in naira or dollars and keep the folio in step with the stay.",
-      },
-      paymentsHighlight,
     ],
     gallery: [
-      { src: innvistaScreen1, alt: "InnVista dashboard" },
-      { src: innvistaScreen2, alt: "InnVista rooms and occupancy" },
-      { src: innvistaScreen3, alt: "InnVista reports" },
-      { src: innvistaScreen4, alt: "InnVista point of sale" },
+      {
+        src: innvistaScreen1,
+        alt: "The InnVista front office dashboard with today's bookings, check-ins, checkouts, and pending payments",
+        title: "Front office",
+        text: "The day starts on one screen. Bookings, check-ins, checkouts, and payments waiting to clear sit next to occupied rooms and confirmed arrivals.",
+      },
+      {
+        src: innvistaScreen2,
+        alt: "The InnVista room board showing available, occupied, and reserved rooms",
+        title: "Rooms",
+        text: "Every room is on one board. Filter by status, category, or location, and see which rooms are free, occupied, or already reserved.",
+      },
+      {
+        src: innvistaScreen3,
+        alt: "The InnVista payments screen with period totals, VAT, and a list of collected bookings",
+        title: "Payments",
+        text: "Collections for today, the week, the month, and the year, with VAT beside each booking payment and the property it came from.",
+      },
+      {
+        src: innvistaScreen4,
+        alt: "The InnVista outlet dashboard with revenue, orders, low stock, and shortcuts into the point of sale",
+        title: "Outlet",
+        text: "The outlet desk shows the day's revenue, open orders, and low stock, then opens the kitchen, the bar, or the point of sale.",
+      },
     ],
     video: {
-      youtubeId: "",
+      youtubeId: PLACEHOLDER_YOUTUBE_ID,
       src: "",
       poster: innvistaScreen1,
       fit: "cover",
@@ -133,7 +138,7 @@ export const products = [
     ],
     gallery: [],
     video: {
-      youtubeId: "",
+      youtubeId: PLACEHOLDER_YOUTUBE_ID,
       src: "",
       poster: ploginnLogo,
       fit: "contain",
@@ -196,7 +201,7 @@ export const products = [
     ],
     gallery: [],
     video: {
-      youtubeId: "",
+      youtubeId: PLACEHOLDER_YOUTUBE_ID,
       src: "",
       poster: stafpayLogo,
       fit: "contain",

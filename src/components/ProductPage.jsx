@@ -1,39 +1,24 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { products } from "../data/products";
-import ProductVideo from "./ProductVideo";
-import ProductFaq from "./ProductFaq";
 
 export default function ProductPage() {
   return (
-    <section id="product" className="scroll-mt-24 w-full bg-[#fffbf2] px-4 py-20 sm:px-6">
+    <section className="w-full bg-[#fffbf2] px-4 pb-16 pt-6 sm:px-6 sm:pt-8">
       <div className="mx-auto w-11/12 max-w-7xl">
-        <header className="mb-14 text-center">
-          <p className="mb-4 text-base font-bold text-[#8d561e]">Our Products</p>
-          <h2 className="font-['Fraunces'] text-3xl font-medium text-[#291a06] sm:text-4xl lg:text-5xl">
-            InnVista, PlogInn, and StafPay
+        <header className="mb-8 text-center sm:mb-10">
+          <h2 className="font-['Fraunces'] text-2xl font-normal italic leading-tight tracking-tight text-[#291a06] sm:text-3xl lg:text-4xl">
+            Products
           </h2>
-          <div className="mt-4 flex justify-center">
-            <div className="h-1 w-16 rounded-full bg-amber-600" />
+          <div className="mt-3 flex justify-center">
+            <div className="h-0.5 w-16 bg-[#cd9432]" />
           </div>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#8d561e] sm:text-lg">
-            Hospitality management, a channel manager, and people operations.
-            Each product has its own page.
+            <span className="font-medium text-[#cd9432]">Hospitality management</span>,{" "}
+            <span className="font-medium text-[#cd9432]">a channel manager</span>, and{" "}
+            <span className="font-medium text-[#cd9432]">people operations</span>{" "}
           </p>
         </header>
-
-        <div className="mb-16 grid gap-4 sm:grid-cols-3">
-          {products.map((product) => (
-            <a
-              key={product.slug}
-              href={`#${product.slug}`}
-              className="rounded-2xl border border-amber-100 bg-white px-5 py-4 text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <p className="font-semibold text-[#291a06]">{product.displayName}</p>
-              <p className="mt-1 text-sm text-[#8d561e]">{product.tagline}</p>
-            </a>
-          ))}
-        </div>
 
         <div className="space-y-16">
           {products.map((product) => (
@@ -54,7 +39,7 @@ export default function ProductPage() {
                 </div>
 
                 <div>
-                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-amber-700">
+                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#cd9432]">
                     {product.tagline}
                   </p>
                   <h3 className="mt-2 font-['Fraunces'] text-3xl font-medium text-[#291a06] md:text-4xl">
@@ -64,12 +49,6 @@ export default function ProductPage() {
                     {product.summary}
                   </p>
 
-                  <ul className="mt-6 space-y-2 text-sm text-[#291a06]">
-                    {product.highlights.slice(0, 4).map((item) => (
-                      <li key={item.title}>• {item.title}</li>
-                    ))}
-                  </ul>
-
                   <Link
                     to={product.href}
                     className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#291a06] px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
@@ -78,11 +57,6 @@ export default function ProductPage() {
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 </div>
-              </div>
-
-              <div className="grid gap-8 border-t border-amber-100 bg-[#fffbf2] p-6 md:grid-cols-2 md:p-10">
-                <ProductVideo product={product} anchorId={`${product.slug}-video`} />
-                <ProductFaq product={product} anchorId={`${product.slug}-faq`} />
               </div>
             </article>
           ))}
