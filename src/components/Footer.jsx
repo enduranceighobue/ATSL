@@ -1,4 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { MapPin } from "lucide-react";
 import { FaInstagram, FaFacebookF, FaTiktok, FaYoutube } from "react-icons/fa6";
 import { email, offices } from "../data/company";
 
@@ -57,7 +58,6 @@ export default function Footer() {
             >
               FAQs
             </Link>
-            <p className="mt-2 text-sm text-[#d2b48c]">{offices}</p>
           </div>
 
           <div className="text-center leading-tight text-[#f5e8d7]">
@@ -79,6 +79,14 @@ export default function Footer() {
             </Link>
           </div>
         </div>
+
+        <p className="mt-4 flex items-start gap-2 text-sm text-[#d2b48c]">
+          <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#f5e8d7]" aria-hidden="true" />
+          <span>
+            <span className="block text-[#f5e8d7]">Location</span>
+            <span className="mt-0.5 block">{offices}</span>
+          </span>
+        </p>
 
         <div className="mt-5 border-t border-[#d2b48c]/30 pt-4">
           <div className="grid grid-cols-1 items-center gap-3 md:grid-cols-3">

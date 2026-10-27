@@ -36,7 +36,7 @@ export default function Contact() {
 
                                     <div>
                                         <h3 className="mb-2 font-['Fraunces'] text-xl font-normal italic leading-snug text-[#291a06]">
-                                            Address
+                                            Location
                                         </h3>
 
                                         <p className="text-gray-600">
