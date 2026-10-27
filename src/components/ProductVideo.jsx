@@ -22,7 +22,7 @@ export default function ProductVideo({ product, heading = true, anchorId = "vide
           type="button"
           onClick={() => setOpen(true)}
           className="group relative block h-full w-full cursor-pointer"
-          aria-label={`Play the ${product.displayName} video`}
+          aria-label={`Play ${product.displayName} video`}
         >
           <img
             src={poster}

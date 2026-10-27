@@ -31,7 +31,7 @@ const paymentsHighlight = {
 export const products = [
   {
     slug: "innvista",
-    name: "InnVista",
+    name: "The InnVista",
     displayName: "The InnVista",
     tagline: "Hospitality Management",
     href: "/innvista",
@@ -86,9 +86,9 @@ export const products = [
     },
     faqs: [
       {
-        question: "What is InnVista?",
+        question: "What is The InnVista?",
         answer:
-          "InnVista is ATSL’s hospitality management product. It covers the booking engine, room management, point of sale, and leak alerts in one platform.",
+          "The InnVista is ATSL’s hospitality management product. It covers the booking engine, room management, point of sale, and leak alerts in one platform.",
       },
       {
         question: "How do guests book?",
@@ -117,7 +117,7 @@ export const products = [
     logo: ploginnLogo,
     logoBg: "bg-black",
     summary:
-      "Hospitality, orchestrated. PlogInn is the channel manager that keeps OTA rates and room inventory aligned from one screen, alongside InnVista.",
+      "Hospitality, orchestrated. PlogInn is the channel manager that keeps OTA rates and room inventory aligned from one screen, alongside The InnVista.",
     highlights: [
       {
         icon: RefreshCw,
@@ -155,9 +155,9 @@ export const products = [
           "No. Rate and inventory changes are made once, then sent out from that screen.",
       },
       {
-        question: "How does PlogInn work with InnVista?",
+        question: "How does PlogInn work with The InnVista?",
         answer:
-          "PlogInn sits beside InnVista. Channel rates and inventory stay lined up with folios, rooms, and payments.",
+          "PlogInn sits beside The InnVista. Channel rates and inventory stay lined up with folios, rooms, and payments.",
       },
       {
         question: "Which payment connections are included?",
@@ -231,7 +231,7 @@ export const products = [
 
 export const hospitalitySuite = [
   {
-    name: "InnVista",
+    name: "The InnVista",
     text: "Booking engine, room management, POS, and leak alerts.",
   },
   {

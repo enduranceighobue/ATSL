@@ -110,7 +110,7 @@ export default function Navbar() {
             </button>
 
             {isOpen && (
-              <div className="absolute top-full left-0 z-50 mt-3 w-40 rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
+              <div className="absolute top-full left-0 z-50 mt-3 w-48 rounded-lg border border-gray-200 bg-white py-2 shadow-lg">
                 {products.map((product) => (
                   <Link
                     key={product.slug}

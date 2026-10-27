@@ -137,7 +137,7 @@ export default function Home() {
                             </button>
 
                             {isProductsOpen && (
-                                <div className="absolute top-full left-0 z-50 mt-3 w-40 rounded-xl border border-amber-100 bg-white py-2 shadow-xl">
+                                <div className="absolute top-full left-0 z-50 mt-3 w-48 rounded-xl border border-amber-100 bg-white py-2 shadow-xl">
                                     {products.map((product) => (
                                         <Link
                                             key={product.slug}
