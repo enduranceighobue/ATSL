@@ -38,9 +38,9 @@ export default function Hero() {
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/30"></div>
 
         {/* Hero Content */}
-        <div className="relative z-20 flex h-full items-center justify-center">
-          <div className="container mx-auto w-[90%] text-center">
-            <div className="mx-auto max-w-2xl text-white">
+        <div className="relative z-20 flex h-full items-center">
+          <div className="container mx-auto w-[90%]">
+            <div className="max-w-md text-left text-white">
               <p className="font-['Outfit'] text-xs uppercase tracking-[0.42em] text-amber-400 sm:text-sm">
                 Seamless
                 <span className="mx-3 text-amber-500/80">|</span>

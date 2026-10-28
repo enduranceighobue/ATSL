@@ -43,7 +43,7 @@ export default function Navbar() {
   }, [isOpen]);
 
   return (
-    <header className="bg-[#291a06] w-full z-50 relative">
+    <header className="sticky top-0 z-50 w-full bg-[#291a06] shadow-md">
       <nav className="container mx-auto flex w-[90%] items-center">
         <Link to="/" aria-label="Home" className="block shrink-0">
           <div className="flex h-18 w-32 shrink-0 items-center overflow-hidden">
