@@ -78,8 +78,8 @@ export default function Home() {
             <header
                 className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
                     scrolled
-                        ? "bg-[#291a06] shadow-md backdrop-blur-md"
-                        : "bg-transparent shadow-md backdrop-blur-md"
+                        ? "bg-[#291a06]/90 shadow-md backdrop-blur-sm"
+                        : "bg-[#120c06]/25 backdrop-blur-sm"
                 }`}
             >
                 <nav className="container mx-auto flex w-[90%] items-center">

@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 
-import heroImage1 from "../assets/innvista2.png";
-import heroImage3 from "../assets/innivis.png";
+import heroImage1 from "../assets/innvista2.jpg";
+import heroImage3 from "../assets/innivis.jpg";
+
+const images = [heroImage1, heroImage3];
 
 export default function Hero() {
-  const images = [heroImage1, heroImage3];
-
   const [currentImage, setCurrentImage] = useState(0);
+  const [canFade, setCanFade] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -18,19 +19,21 @@ export default function Hero() {
 
   return (
     <>
-      <section className="relative h-svh overflow-hidden">
+      <section className="relative h-svh overflow-hidden bg-[#120c06]">
 
-        {/* Background Images */}
         {images.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out ${index === currentImage
-              ? "opacity-100 scale-110"
-              : "opacity-0 scale-100"
-              }`}
-            style={{
-              backgroundImage: `url(${image})`,
+          <img
+            key={image}
+            src={image}
+            alt=""
+            fetchPriority={index === 0 ? "high" : "low"}
+            decoding="async"
+            onLoad={() => {
+              if (index === 0) setCanFade(true);
             }}
+            className={`absolute inset-0 h-full w-full object-cover object-center ${
+              canFade ? "transition-opacity duration-700 ease-in-out" : ""
+            } ${index === currentImage ? "opacity-100" : "opacity-0"}`}
           />
         ))}
 
