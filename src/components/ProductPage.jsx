@@ -13,11 +13,7 @@ export default function ProductPage() {
           <div className="mt-3 flex justify-center">
             <div className="h-0.5 w-16 bg-[#cd9432]" />
           </div>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#8d561e] sm:text-lg">
-            <span className="font-medium text-[#cd9432]">Hospitality management</span>,{" "}
-            <span className="font-medium text-[#cd9432]">a channel manager</span>, and{" "}
-            <span className="font-medium text-[#cd9432]">people operations</span>{" "}
-          </p>
+         
         </header>
 
         <div className="space-y-16">
