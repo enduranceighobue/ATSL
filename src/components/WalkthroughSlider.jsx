@@ -70,9 +70,7 @@ export default function WalkthroughSlider({ title, slides }) {
           <div className="mt-3 flex justify-center">
             <div className="h-0.5 w-16 bg-[#cd9432]" />
           </div>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-[#5c3b16] sm:text-base">
-            Four walkthroughs of the live screens. The full pass takes about {totalSeconds} seconds.
-          </p>
+          
         </header>
 
         <div

@@ -19,7 +19,6 @@ export default function Contact() {
                         <div className="mt-3 mb-6 flex justify-center">
                             <div className="h-0.5 w-16 bg-[#cd9432]" />
                         </div>
-                        <p className="text-lg text-gray-600">We are always ready to assist — reach us through any of these channels.</p>
                     </div>
 
                     <div className="grid lg:grid-cols-2 gap-8">
