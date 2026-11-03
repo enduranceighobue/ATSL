@@ -7,6 +7,7 @@ export default function WalkthroughSlider({ slides }) {
   const [index, setIndex] = useState(0);
   const [viewerOpen, setViewerOpen] = useState(false);
   const [viewerIndex, setViewerIndex] = useState(0);
+  const [canFade, setCanFade] = useState(false);
   const count = slides.length;
   const slide = slides[index];
   const viewerSlide = slides[viewerIndex];
@@ -66,22 +67,30 @@ export default function WalkthroughSlider({ slides }) {
         className="block w-full cursor-pointer overflow-hidden rounded-2xl border border-[#ead9bf] bg-white text-left shadow-sm"
         aria-label={`Open ${slide.title}`}
       >
-        <div className="relative" aria-live="polite">
-          <img
-            src={slides[0].src}
-            alt=""
-            aria-hidden="true"
-            className="invisible h-auto max-h-[74vh] w-full object-contain"
-          />
+        <div
+          className="relative max-h-[74vh] w-full"
+          style={{
+            aspectRatio: `${slides[0].width || 1280} / ${slides[0].height || 548}`,
+          }}
+          aria-live="polite"
+        >
           {slides.map((item, slideIndex) => (
             <img
               key={item.src}
               src={item.src}
               alt={slideIndex === index ? item.alt : ""}
+              width={item.width || 1280}
+              height={item.height || 548}
               aria-hidden={slideIndex === index ? undefined : true}
-              className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-700 ${
-                slideIndex === index ? "opacity-100" : "opacity-0"
-              }`}
+              fetchPriority={slideIndex === 0 ? "high" : "low"}
+              loading="eager"
+              decoding={slideIndex === 0 ? "sync" : "async"}
+              onLoad={() => {
+                if (slideIndex === 0) setCanFade(true);
+              }}
+              className={`absolute inset-0 h-full w-full object-contain ${
+                canFade ? "transition-opacity duration-700" : ""
+              } ${slideIndex === index ? "opacity-100" : "opacity-0"}`}
             />
           ))}
         </div>

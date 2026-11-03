@@ -8,6 +8,29 @@
     <style>
       html { background-color: #120c06; }
     </style>
+    <script>
+      (function () {
+        var path = location.pathname.replace(/\/+$/, "") || "/";
+        if (path !== "/innvista") return;
+
+        document.documentElement.style.backgroundColor = "#ffffff";
+
+        [
+          "/innvista/logo.jpeg",
+          "/innvista/front-office.jpeg",
+          "/innvista/rooms.jpeg",
+          "/innvista/payments.jpeg",
+          "/innvista/outlet.jpeg",
+        ].forEach(function (href, index) {
+          var link = document.createElement("link");
+          link.rel = "preload";
+          link.as = "image";
+          link.href = href;
+          if (index < 2) link.setAttribute("fetchpriority", "high");
+          document.head.appendChild(link);
+        });
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

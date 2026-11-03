@@ -31,7 +31,7 @@ export default function Careers() {
                         </p>
                     </div>
 
-                    <div className="rounded-lg border-t-4 border-[#291a06] bg-white p-5 shadow-md sm:p-6">
+                    <div className="rounded-lg bg-white p-5 shadow-md sm:p-6">
                         <CareerForm />
                     </div>
                 </div>

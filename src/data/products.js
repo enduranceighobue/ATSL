@@ -9,13 +9,14 @@ import {
   UserPlus,
   Wallet,
 } from "lucide-react";
-import innvistaLogo from "../assets/innvista.jpeg";
 import ploginnLogo from "../assets/ploginn.jpeg";
 import stafpayLogo from "../assets/stafpay.jpeg";
-import innvistaScreen1 from "../assets/product6.jpeg";
-import innvistaScreen2 from "../assets/product7.jpeg";
-import innvistaScreen3 from "../assets/product8.jpeg";
-import innvistaScreen4 from "../assets/product9.jpeg";
+
+const innvistaLogo = "/innvista/logo.jpeg";
+const innvistaScreen1 = "/innvista/front-office.jpeg";
+const innvistaScreen2 = "/innvista/rooms.jpeg";
+const innvistaScreen3 = "/innvista/payments.jpeg";
+const innvistaScreen4 = "/innvista/outlet.jpeg";
 
 export const YOUTUBE_CHANNEL = "https://www.youtube.com/@atslng";
 
@@ -55,24 +56,32 @@ export const products = [
     gallery: [
       {
         src: innvistaScreen1,
+        width: 1280,
+        height: 548,
         alt: "The InnVista front office dashboard with today's bookings, check-ins, checkouts, and pending payments",
         title: "Front office",
         text: "The day starts on one screen. Bookings, check-ins, checkouts, and payments waiting to clear sit next to occupied rooms and confirmed arrivals.",
       },
       {
         src: innvistaScreen2,
+        width: 1280,
+        height: 540,
         alt: "The InnVista room board showing available, occupied, and reserved rooms",
         title: "Rooms",
         text: "Every room is on one board. Filter by status, category, or location, and see which rooms are free, occupied, or already reserved.",
       },
       {
         src: innvistaScreen3,
+        width: 1280,
+        height: 686,
         alt: "The InnVista payments screen with period totals, VAT, and a list of collected bookings",
         title: "Payments",
         text: "Collections for today, the week, the month, and the year, with VAT beside each booking payment and the property it came from.",
       },
       {
         src: innvistaScreen4,
+        width: 1280,
+        height: 648,
         alt: "The InnVista outlet dashboard with revenue, orders, low stock, and shortcuts into the point of sale",
         title: "Outlet",
         text: "The outlet desk shows the day's revenue, open orders, and low stock, then opens the kitchen, the bar, or the point of sale.",

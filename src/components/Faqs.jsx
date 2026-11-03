@@ -14,7 +14,7 @@ export default function Faqs() {
   return (
     <section
       id="faqs"
-      className="scroll-mt-[4.5rem] border-t border-[#cd9432] bg-[#fcfaf4] px-4 py-14 sm:px-6 sm:py-16"
+      className="scroll-mt-[4.5rem] border-t border-[#cd9432] bg-white px-4 py-14 sm:px-6 sm:py-16"
       aria-labelledby="faqs-heading"
     >
       <div className="mx-auto w-11/12 max-w-3xl">
@@ -37,7 +37,7 @@ export default function Faqs() {
             return (
               <article
                 key={faq.question}
-                className="overflow-hidden rounded-2xl border border-[#cd9432]/70 bg-[#fcfaf4]"
+                className="overflow-hidden rounded-2xl border border-[#cd9432]/70 bg-white"
               >
                 <button
                   type="button"

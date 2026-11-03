@@ -29,7 +29,7 @@ export default function ProductDetail({ slug }) {
     return (
       <>
         <Nav />
-        <main className="bg-[#fffbf2] px-6 py-24 text-center">
+        <main className="bg-white px-6 py-24 text-center">
           <h1 className="text-3xl font-bold text-[#291a06]">Product not found</h1>
           <Link to="/" className="mt-6 inline-block text-amber-700 underline">
             Back home
@@ -43,7 +43,7 @@ export default function ProductDetail({ slug }) {
   return (
     <>
       <Nav />
-      <main className="bg-[#fffbf2]">
+      <main className="bg-white">
         {product.gallery.length > 0 ? (
           <section className="flex min-h-[calc(100svh-4.5rem)] items-center px-4 py-8 sm:px-6">
             <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-6 lg:flex-row lg:items-center lg:justify-center lg:gap-8">
@@ -57,6 +57,10 @@ export default function ProductDetail({ slug }) {
                   <img
                     src={product.logo}
                     alt={`${product.displayName} logo`}
+                    width={1254}
+                    height={1254}
+                    fetchPriority="high"
+                    decoding="async"
                     className="max-h-32 w-full object-contain sm:max-h-36"
                   />
                 </div>
@@ -97,6 +101,10 @@ export default function ProductDetail({ slug }) {
                 <img
                   src={product.logo}
                   alt={`${product.displayName} logo`}
+                  width={1254}
+                  height={1254}
+                  fetchPriority="high"
+                  decoding="async"
                   className="max-h-32 w-full object-contain sm:max-h-36"
                 />
               </div>

@@ -8,7 +8,7 @@ export default function Contact() {
         <>
             {/* <Navber /> */}
 
-            <section className="min-h-[calc(100svh-4.5rem)] bg-[#fff7e3] px-4 pb-12 pt-6 sm:px-6 sm:pt-8">
+            <section className="min-h-[calc(100svh-4.5rem)] bg-white px-4 pb-12 pt-6 sm:px-6 sm:pt-8">
 
                 <div className="mx-auto w-full sm:w-11/12">
 
@@ -24,7 +24,7 @@ export default function Contact() {
                     <div className="grid lg:grid-cols-2 gap-8">
 
                         {/* Contact Info */}
-                        <div className="bg-white rounded-lg shadow-md border-t-4 border-[#291a06] p-5 sm:p-8">
+                        <div className="bg-white rounded-lg shadow-md p-5 sm:p-8">
 
                             <div className="space-y-8">
 
@@ -105,7 +105,7 @@ export default function Contact() {
                         </div>
 
                         {/* Contact Form */}
-                        <div id="contact-form" className="scroll-mt-[4.5rem] bg-white rounded-lg shadow-md border-t-4 border-[#291a06] p-8">
+                        <div id="contact-form" className="scroll-mt-[4.5rem] bg-white rounded-lg shadow-md p-8">
                             <ContactForm />
                         </div>
 

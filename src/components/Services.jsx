@@ -48,7 +48,7 @@ const services = [
 
 export default function Services() {
     return (
-        <section className="flex min-h-[calc(100svh-4.5rem)] flex-col bg-gradient-to-b from-[#fffbf2] to-[#faeed3] px-4 pb-10 pt-6 sm:px-6 sm:pt-8">
+        <section className="flex min-h-[calc(100svh-4.5rem)] flex-col bg-white px-4 pb-10 pt-6 sm:px-6 sm:pt-8">
             <div className="mx-auto w-full max-w-6xl">
                 <div className="mb-6 text-center sm:mb-8">
                     <h2 className="font-['Fraunces'] text-2xl font-normal italic leading-tight tracking-tight text-[#291a06] sm:text-3xl lg:text-4xl">
