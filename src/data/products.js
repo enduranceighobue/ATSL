@@ -17,6 +17,10 @@ const innvistaScreen1 = "/innvista/front-office.jpeg";
 const innvistaScreen2 = "/innvista/rooms.jpeg";
 const innvistaScreen3 = "/innvista/payments.jpeg";
 const innvistaScreen4 = "/innvista/outlet.jpeg";
+const ploginnDashboard = "/ploginn/dashboard.png";
+const ploginnOrganizations = "/ploginn/organizations.png";
+const ploginnBilling = "/ploginn/billing.png";
+const ploginnProperties = "/ploginn/properties.png";
 
 export const YOUTUBE_CHANNEL = "https://www.youtube.com/@atslng";
 
@@ -145,11 +149,44 @@ export const products = [
       },
       paymentsHighlight,
     ],
-    gallery: [],
+    gallery: [
+      {
+        src: ploginnDashboard,
+        width: 1920,
+        height: 763,
+        alt: "PlogInn dashboard with organizations, properties, failed syncs, and monthly revenue",
+        title: "Dashboard",
+        text: "Organizations, properties, failed syncs, and monthly revenue sit together, with recent inventory updates beside the usual tasks.",
+      },
+      {
+        src: ploginnOrganizations,
+        width: 1920,
+        height: 804,
+        alt: "PlogInn organizations list with hotel groups, property counts, owners, and verification status",
+        title: "Organizations",
+        text: "Every hotel group is on one list, with its properties, owner, and whether the account is verified.",
+      },
+      {
+        src: ploginnBilling,
+        width: 1920,
+        height: 817,
+        alt: "PlogInn billing screen with monthly revenue, annual run rate, paying organizations, and plan breakdown",
+        title: "Billing",
+        text: "Monthly revenue and the annual run rate sit next to paying organizations and the plan each one is on.",
+      },
+      {
+        src: ploginnProperties,
+        width: 1920,
+        height: 1020,
+        alt: "PlogInn property registry showing a hotel, its organization, timezone, and active status",
+        title: "Properties",
+        text: "Each property is listed with its organization, timezone, and status, ready to open for an audit.",
+      },
+    ],
     video: {
       youtubeId: PLACEHOLDER_YOUTUBE_ID,
       src: "",
-      poster: ploginnLogo,
+      poster: ploginnDashboard,
       fit: "contain",
     },
     faqs: [
