@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { products } from "../data/products";
 
-const SLIDE_MS = 4000;
+const SLIDE_MS = 2800;
 
 export default function ProductPage() {
   const [index, setIndex] = useState(0);

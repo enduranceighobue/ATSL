@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { FaInstagram, FaFacebookF, FaTiktok, FaYoutube } from "react-icons/fa6";
 import { email, offices } from "../data/company";
 
@@ -48,9 +48,32 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#291a06] font-['Fraunces'] font-normal italic leading-snug text-white" role="contentinfo">
-      <div className="mx-auto w-11/12 px-6 py-6">
-        <div className="grid grid-cols-3 items-start gap-4 sm:gap-6">
-          <div className="text-left">
+      <div className="mx-auto w-11/12 px-6 pb-6 pt-8">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <p className="text-lg leading-tight text-[#f5e8d7] sm:text-xl">
+              Adaptive Tech Solutions Limited
+            </p>
+            <div className="mt-3 h-0.5 w-12 bg-[#cd9432]" aria-hidden="true" />
+            <div className="mt-4 space-y-2 font-sans text-sm not-italic leading-snug text-[#d2b48c]">
+              <p className="flex items-start gap-2">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#cd9432]" aria-hidden="true" />
+                <span>{offices}</span>
+              </p>
+              <a
+                href={`mailto:${email}`}
+                className="inline-flex items-center gap-2 transition-colors hover:text-white"
+              >
+                <Mail className="h-4 w-4 shrink-0 text-[#cd9432]" aria-hidden="true" />
+                {email}
+              </a>
+            </div>
+          </div>
+
+          <nav
+            className="flex items-center gap-6 sm:flex-col sm:items-end sm:gap-3 sm:pt-1"
+            aria-label="Company"
+          >
             <Link
               to="/#faqs"
               onClick={goToFaqs}
@@ -58,35 +81,14 @@ export default function Footer() {
             >
               FAQs
             </Link>
-          </div>
-
-          <div className="text-center leading-tight text-[#f5e8d7]">
-            <p className="text-sm">Adaptive Tech Solutions Limited</p>
-            <a
-              href={`mailto:${email}`}
-              className="mt-1 inline-block text-sm transition-colors hover:text-white"
-            >
-              {email}
-            </a>
-          </div>
-
-          <div className="text-right">
             <Link
               to="/careers"
-              className="mr-[4.5rem] inline-block text-sm tracking-wide text-[#d2b48c] transition-colors hover:text-[#f5e8d7] md:mr-[8.4rem]"
+              className="text-sm tracking-wide text-[#d2b48c] transition-colors hover:text-[#f5e8d7]"
             >
               Careers
             </Link>
-          </div>
+          </nav>
         </div>
-
-        <p className="mt-4 flex items-start gap-2 text-sm text-[#d2b48c]">
-          <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#f5e8d7]" aria-hidden="true" />
-          <span>
-            <span className="block text-[#f5e8d7]">Location</span>
-            <span className="mt-0.5 block">{offices}</span>
-          </span>
-        </p>
 
         <div className="mt-5 border-t border-[#d2b48c]/30 pt-4">
           <div className="grid grid-cols-1 items-center gap-3 md:grid-cols-3">

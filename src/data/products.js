@@ -21,6 +21,10 @@ const ploginnDashboard = "/ploginn/dashboard.png";
 const ploginnOrganizations = "/ploginn/organizations.png";
 const ploginnBilling = "/ploginn/billing.png";
 const ploginnProperties = "/ploginn/properties.png";
+const stafpayOverview = "/stafpay/overview.png";
+const stafpayAttention = "/stafpay/needs-attention.png";
+const stafpaySites = "/stafpay/sites.png";
+const stafpayCases = "/stafpay/hr-cases.png";
 
 export const YOUTUBE_CHANNEL = "https://www.youtube.com/@atslng";
 
@@ -245,11 +249,44 @@ export const products = [
         text: "Designed for outsourcing firms and for standard companies with their own teams.",
       },
     ],
-    gallery: [],
+    gallery: [
+      {
+        src: stafpayOverview,
+        width: 949,
+        height: 452,
+        alt: "StafPay HR overview with active staff, joiners and leavers, leave, HR cases, and people who cannot be paid",
+        title: "Overview",
+        text: "Active staff, joiners and leavers, leave waiting, open HR cases, and people who cannot be paid sit on one screen.",
+      },
+      {
+        src: stafpayAttention,
+        width: 949,
+        height: 452,
+        alt: "StafPay needs-attention list with sites short of staff, overdue complaints, expiring documents, ending terms, and probations due",
+        title: "Needs attention",
+        text: "Sites short of staff, overdue complaints, expiring documents, ending terms, and probations due for review are ordered worst first.",
+      },
+      {
+        src: stafpaySites,
+        width: 949,
+        height: 452,
+        alt: "StafPay sites below full manning, with required posts, filled posts, and the shortfall",
+        title: "Sites",
+        text: "Sites below full manning list what each site needs, what is filled, and how many posts are still short.",
+      },
+      {
+        src: stafpayCases,
+        width: 949,
+        height: 452,
+        alt: "StafPay HR overview showing open cases and anything past its date beside the rest of the people picture",
+        title: "HR cases",
+        text: "Open HR cases and anything past its date stay beside the rest of the people picture, ready to open.",
+      },
+    ],
     video: {
       youtubeId: PLACEHOLDER_YOUTUBE_ID,
       src: "",
-      poster: stafpayLogo,
+      poster: stafpayOverview,
       fit: "contain",
     },
     faqs: [
