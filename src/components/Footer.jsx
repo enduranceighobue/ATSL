@@ -54,7 +54,6 @@ export default function Footer() {
             <p className="text-lg leading-tight text-[#f5e8d7] sm:text-xl">
               Adaptive Tech Solutions Limited
             </p>
-            <div className="mt-3 h-0.5 w-12 bg-[#cd9432]" aria-hidden="true" />
             <div className="mt-4 space-y-2 font-sans text-sm not-italic leading-snug text-[#d2b48c]">
               <p className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#cd9432]" aria-hidden="true" />
@@ -97,7 +96,7 @@ export default function Footer() {
             </p>
 
             <nav
-              className="flex items-center justify-center gap-4"
+              className="flex flex-wrap items-center justify-center gap-3 sm:gap-4"
               aria-label="Social media"
             >
               {socialLinks.map(({ href, label, icon: Icon, hover }) => (
@@ -118,7 +117,7 @@ export default function Footer() {
               className="flex justify-center md:justify-end"
               aria-label="Legal navigation"
             >
-              <div className="grid grid-cols-[max-content_max-content_max-content] gap-x-6 text-center">
+              <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-center">
                 <a
                   href="#"
                   className="text-sm text-[#d2b48c] transition-colors hover:text-white"

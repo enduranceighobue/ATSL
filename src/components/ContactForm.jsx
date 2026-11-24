@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 
 const CONTACT_REASONS = [
     { value: "general", label: "General enquiry" },
@@ -7,13 +7,19 @@ const CONTACT_REASONS = [
     { value: "support", label: "Support" },
 ];
 
+const MESSAGE_MAX_LENGTH = 60;
+
 const emptyForm = {
-    name: "",
+    firstName: "",
+    lastName: "",
     phone: "",
     email: "",
     reason: "",
     message: "",
 };
+
+const inputClass =
+    "w-full rounded-xl border bg-white px-3 py-2.5 text-sm text-[#291a06] outline-none transition placeholder:text-[#9b8877] focus:ring-4 focus:ring-[#cd9432]/15";
 
 function reasonLabel(value) {
     return CONTACT_REASONS.find((item) => item.value === value)?.label ?? "";
@@ -35,6 +41,7 @@ export default function ContactForm({
     suppressSuccessToast = false,
     onSuccess,
 }) {
+    const formId = useId();
     const [formData, setFormData] = useState({
         ...emptyForm,
         reason: initialReason,
@@ -54,8 +61,12 @@ export default function ContactForm({
     const validate = (data) => {
         const errs = {};
 
-        if (!data.name.trim()) {
-            errs.name = "Please enter your name.";
+        if (!data.firstName.trim()) {
+            errs.firstName = "Enter your first name.";
+        }
+
+        if (!data.lastName.trim()) {
+            errs.lastName = "Enter your last name.";
         }
 
         if (!data.email.trim()) {
@@ -87,7 +98,8 @@ export default function ContactForm({
 
         if (Object.keys(validation).length > 0) {
             setTouched({
-                name: true,
+                firstName: true,
+                lastName: true,
                 email: true,
                 phone: true,
                 reason: true,
@@ -104,7 +116,10 @@ export default function ContactForm({
         try {
             const formPayload = new FormData();
 
-            formPayload.append("name", formData.name);
+            formPayload.append(
+                "name",
+                `${formData.firstName.trim()} ${formData.lastName.trim()}`
+            );
             formPayload.append("phone", formData.phone);
             formPayload.append("email", formData.email);
             formPayload.append("reason", selectedReason);
@@ -202,95 +217,157 @@ export default function ContactForm({
                 </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div>
+            <div className="mb-4">
+                <h3 className="font-['Fraunces'] text-xl font-normal italic leading-snug text-[#291a06]">
+                    Send us a message
+                </h3>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-3">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    <div className="space-y-1">
+                        <label htmlFor={`${formId}-first-name`} className="text-xs font-medium text-[#5c4030]">
+                            First name
+                        </label>
                         <input
                             type="text"
-                            name="name"
-                            placeholder="Name"
-                            value={formData.name}
+                            id={`${formId}-first-name`}
+                            name="firstName"
+                            placeholder="First name"
+                            value={formData.firstName}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            autoComplete="name"
-                            className={`w-full rounded border px-4 py-3 ${showError("name") ? "border-red-500" : ""}`}
+                            autoComplete="given-name"
+                            aria-invalid={showError("firstName")}
+                            aria-describedby={showError("firstName") ? `${formId}-first-name-error` : undefined}
+                            className={`${inputClass} ${showError("firstName") ? "border-red-500 focus:border-red-500" : "border-[#ead9bf] focus:border-[#cd9432]"}`}
                         />
-                        {showError("name") && (
-                            <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+                        {showError("firstName") && (
+                            <p id={`${formId}-first-name-error`} className="text-xs text-red-600">{errors.firstName}</p>
                         )}
                     </div>
 
-                    <input
-                        type="tel"
-                        name="phone"
-                        placeholder="Phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        autoComplete="tel"
-                        className="w-full rounded border px-4 py-3"
-                    />
+                    <div className="space-y-1">
+                        <label htmlFor={`${formId}-last-name`} className="text-xs font-medium text-[#5c4030]">
+                            Last name
+                        </label>
+                        <input
+                            type="text"
+                            id={`${formId}-last-name`}
+                            name="lastName"
+                            placeholder="Last name"
+                            value={formData.lastName}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            autoComplete="family-name"
+                            aria-invalid={showError("lastName")}
+                            aria-describedby={showError("lastName") ? `${formId}-last-name-error` : undefined}
+                            className={`${inputClass} ${showError("lastName") ? "border-red-500 focus:border-red-500" : "border-[#ead9bf] focus:border-[#cd9432]"}`}
+                        />
+                        {showError("lastName") && (
+                            <p id={`${formId}-last-name-error`} className="text-xs text-red-600">{errors.lastName}</p>
+                        )}
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div>
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    <div className="space-y-1">
+                        <label htmlFor={`${formId}-email`} className="text-xs font-medium text-[#5c4030]">
+                            Email
+                        </label>
                         <input
                             type="email"
+                            id={`${formId}-email`}
                             name="email"
-                            placeholder="Email"
+                            placeholder="you@example.com"
                             value={formData.email}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             autoComplete="email"
-                            className={`w-full rounded border px-4 py-3 ${showError("email") ? "border-red-500" : ""}`}
+                            aria-invalid={showError("email")}
+                            aria-describedby={showError("email") ? `${formId}-email-error` : undefined}
+                            className={`${inputClass} ${showError("email") ? "border-red-500 focus:border-red-500" : "border-[#ead9bf] focus:border-[#cd9432]"}`}
                         />
                         {showError("email") && (
-                            <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                            <p id={`${formId}-email-error`} className="text-xs text-red-600">{errors.email}</p>
                         )}
                     </div>
 
-                    <div>
-                        <select
-                            name="reason"
-                            value={formData.reason}
+                    <div className="space-y-1">
+                        <label htmlFor={`${formId}-phone`} className="text-xs font-medium text-[#5c4030]">
+                            Phone <span className="text-[#9b8877]">(optional)</span>
+                        </label>
+                        <input
+                            type="tel"
+                            id={`${formId}-phone`}
+                            name="phone"
+                            placeholder="Phone number"
+                            value={formData.phone}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            aria-label="Reason for contacting ATSL"
-                            className={`w-full rounded border bg-white px-4 py-3 ${showError("reason") ? "border-red-500" : ""} ${formData.reason ? "text-gray-900" : "text-gray-500"}`}
-                        >
-                            <option value="">Reason for contacting</option>
-                            {CONTACT_REASONS.map((item) => (
-                                <option key={item.value} value={item.value}>
-                                    {item.label}
-                                </option>
-                            ))}
-                        </select>
-                        {showError("reason") && (
-                            <p className="mt-1 text-sm text-red-600">{errors.reason}</p>
-                        )}
+                            autoComplete="tel"
+                            aria-invalid={showError("phone")}
+                            className={`${inputClass} ${showError("phone") ? "border-red-500 focus:border-red-500" : "border-[#ead9bf] focus:border-[#cd9432]"}`}
+                        />
                     </div>
                 </div>
 
-                <div>
-                    <textarea
-                        name="message"
-                        placeholder="Message"
-                        value={formData.message}
+                <div className="space-y-1">
+                    <label htmlFor={`${formId}-reason`} className="text-xs font-medium text-[#5c4030]">
+                        How can we help?
+                    </label>
+                    <select
+                        id={`${formId}-reason`}
+                        name="reason"
+                        value={formData.reason}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className={`h-32 w-full rounded border px-4 py-3 ${showError("message") ? "border-red-500" : ""}`}
+                        aria-invalid={showError("reason")}
+                        aria-describedby={showError("reason") ? `${formId}-reason-error` : undefined}
+                        className={`${inputClass} ${showError("reason") ? "border-red-500 focus:border-red-500" : "border-[#ead9bf] focus:border-[#cd9432]"} ${formData.reason ? "" : "text-[#9b8877]"}`}
+                    >
+                        <option value="">Select a reason</option>
+                        {CONTACT_REASONS.map((item) => (
+                            <option key={item.value} value={item.value}>
+                                {item.label}
+                            </option>
+                        ))}
+                    </select>
+                    {showError("reason") && (
+                        <p id={`${formId}-reason-error`} className="text-xs text-red-600">{errors.reason}</p>
+                    )}
+                </div>
+
+                <div className="space-y-1">
+                    <label htmlFor={`${formId}-message`} className="text-xs font-medium text-[#5c4030]">
+                        Message
+                    </label>
+                    <textarea
+                        id={`${formId}-message`}
+                        name="message"
+                        placeholder="Tell us what you need"
+                        value={formData.message}
+                        maxLength={MESSAGE_MAX_LENGTH}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        aria-invalid={showError("message")}
+                        aria-describedby={`${formId}-message-count${showError("message") ? ` ${formId}-message-error` : ""}`}
+                        className={`${inputClass} h-20 resize-none ${showError("message") ? "border-red-500 focus:border-red-500" : "border-[#ead9bf] focus:border-[#cd9432]"}`}
                     />
+                    <p id={`${formId}-message-count`} className="text-right text-xs text-[#8a715d]">
+                        {MESSAGE_MAX_LENGTH - formData.message.length} characters remaining
+                    </p>
                     {showError("message") && (
-                        <p className="mt-1 text-sm text-red-600">{errors.message}</p>
+                        <p id={`${formId}-message-error`} className="text-xs text-red-600">{errors.message}</p>
                     )}
                 </div>
 
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="cursor-pointer rounded-[40px] bg-[#291a06] px-6 py-3 text-white transition hover:bg-[#3b260b] disabled:cursor-wait disabled:opacity-70"
+                    className="inline-flex cursor-pointer items-center justify-center rounded-full bg-[#291a06] px-6 py-2.5 text-sm font-medium text-white transition hover:bg-[#3b260b] focus:outline-none focus:ring-4 focus:ring-[#cd9432]/25 disabled:cursor-wait disabled:opacity-70"
                 >
-                    {isSubmitting ? "Sending..." : "Send"}
+                    {isSubmitting ? "Sending..." : "Send message"}
                 </button>
             </form>
         </>

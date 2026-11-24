@@ -21,12 +21,12 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    <div className="grid lg:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2">
 
                         {/* Contact Info */}
-                        <div className="bg-white rounded-lg shadow-md p-5 sm:p-8">
+                        <div className="h-full min-w-0 rounded-2xl border border-[#ead9bf] bg-white/90 p-5 shadow-[0_18px_40px_-28px_rgba(41,26,6,0.55)] sm:p-6 sm:pt-10">
 
-                            <div className="space-y-8">
+                            <div className="space-y-10">
 
                                 <div className="flex items-start gap-4">
                                     <div className="w-14 h-14 bg-[#f5e8d7] rounded-full flex items-center justify-center">
@@ -55,26 +55,19 @@ export default function Contact() {
                                         </h3>
 
                                         <div className="space-y-1">
-                                            {phones.map((phone, index) => (
+                                            {phones.map((phone) => (
                                                 <a
                                                     key={phone.e164}
                                                     href={whatsappLink(phone.e164)}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="flex items-center gap-2 whitespace-nowrap text-sm leading-none text-gray-600 hover:text-amber-700 sm:text-base"
+                                                    className="flex min-w-0 items-center gap-2 text-sm leading-snug text-gray-600 transition-colors hover:text-amber-700 sm:text-base"
                                                 >
-                                                    {index === 0 ? (
-                                                        <FaWhatsapp
-                                                            className="h-4 w-4 shrink-0 text-[#25D366]"
-                                                            aria-hidden="true"
-                                                        />
-                                                    ) : (
-                                                        <Phone
-                                                            className="h-4 w-4 shrink-0 text-amber-700"
-                                                            aria-hidden="true"
-                                                        />
-                                                    )}
-                                                    <span>{phone.display}</span>
+                                                    <FaWhatsapp
+                                                        className="h-4 w-4 shrink-0 text-[#25D366]"
+                                                        aria-hidden="true"
+                                                    />
+                                                    <span className="break-words">{phone.display}</span>
                                                 </a>
                                             ))}
                                         </div>
@@ -105,7 +98,7 @@ export default function Contact() {
                         </div>
 
                         {/* Contact Form */}
-                        <div id="contact-form" className="scroll-mt-[4.5rem] bg-white rounded-lg shadow-md p-8">
+                        <div id="contact-form" className="h-full min-w-0 scroll-mt-[4.5rem] rounded-2xl border border-[#ead9bf] bg-white/90 p-5 shadow-[0_18px_40px_-28px_rgba(41,26,6,0.55)] sm:p-6">
                             <ContactForm />
                         </div>
 

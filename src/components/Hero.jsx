@@ -38,34 +38,32 @@ export default function Hero() {
         ))}
 
         {/* Dark Overlay */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/30"></div>
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/70 via-black/60 to-black/30"></div>
 
         {/* Hero Content */}
-        <div className="relative z-20 flex h-full items-center">
-          <div className="container mx-auto w-[90%]">
-            <div className="max-w-md text-left text-white">
-              <p className="font-['Outfit'] text-xs uppercase tracking-[0.42em] text-amber-400 sm:text-sm">
-                Seamless
-                <span className="mx-3 text-amber-500/80">|</span>
-                Secure
-                <span className="mx-3 text-amber-500/80">|</span>
-                Simple
-              </p>
-
-              <h1 className="mt-4 font-['Fraunces'] text-2xl font-normal italic leading-tight tracking-tight text-amber-100 sm:text-3xl lg:text-4xl">
-                solutions.
-              </h1>
-
-              <a
-                href="#contact"
-                aria-label="Contact"
-                className="mt-5 inline-flex items-center gap-1 rounded-full bg-amber-600 px-2.5 py-1 font-['Outfit'] text-[10px] uppercase leading-none tracking-[0.12em] text-white transition-all duration-300 hover:gap-2 hover:bg-amber-500"
-              >
-                Get Started
-                <span aria-hidden="true">→</span>
-              </a>
+        <div className="absolute inset-0 z-20">
+          <div className="absolute bottom-10 left-1/2 w-[90%] -translate-x-1/2 text-white">
+            <div className="grid w-full max-w-md grid-cols-[minmax(0,1fr)_1.2rem_minmax(0,1fr)_1.2rem_minmax(0,1fr)] items-center font-['Outfit'] text-xs uppercase tracking-[0.18em] text-amber-400 max-[300px]:text-[10px] max-[300px]:tracking-normal sm:text-sm sm:tracking-[0.42em]">
+              <span className="justify-self-start">Seamless</span>
+              <span className="text-center text-amber-500/80">|</span>
+              <span className="justify-self-center">Secure</span>
+              <span className="text-center text-amber-500/80">|</span>
+              <span className="justify-self-end">Simple</span>
             </div>
+
+            <h1 className="mt-0 grid w-full max-w-md grid-cols-[minmax(0,1fr)_1.2rem_minmax(0,1fr)_1.2rem_minmax(0,1fr)] font-['Fraunces'] text-xl font-normal italic leading-tight text-amber-100 sm:text-2xl">
+              <span className="col-start-3 justify-self-center">solutions.</span>
+            </h1>
           </div>
+
+          <a
+            href="#contact"
+            aria-label="Contact"
+            className="absolute bottom-2 left-[56%] inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-amber-600 px-2.5 py-1 font-['Outfit'] text-[10px] uppercase leading-none tracking-[0.12em] text-white transition-all duration-300 hover:gap-2 hover:bg-amber-500 max-[300px]:left-[52%] max-[300px]:gap-0 max-[300px]:px-2 max-[300px]:text-[9px] sm:left-[53%]"
+          >
+            Get Started
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
 
       </section>

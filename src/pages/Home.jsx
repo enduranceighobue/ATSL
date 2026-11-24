@@ -78,8 +78,8 @@ export default function Home() {
             <header
                 className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
                     scrolled
-                        ? "bg-[#291a06]/90 shadow-md backdrop-blur-sm"
-                        : "bg-[#120c06]/25 backdrop-blur-sm"
+                        ? "bg-[#291a06]/90 "
+                        : "bg-[#120c06]/0"
                 }`}
             >
                 <nav className="container mx-auto flex w-[90%] items-center">
@@ -90,7 +90,7 @@ export default function Home() {
                             className="h-full w-full origin-center scale-[2.05] object-cover object-center"
                         />
                     </div>
-                    <p className="ml-3 min-w-0 font-['Fraunces'] text-xs font-normal italic leading-snug text-white sm:ml-4 sm:text-sm lg:text-base">
+                    <p className="ml-3 hidden min-w-0 font-['Fraunces'] text-xs font-normal italic leading-snug text-white sm:ml-4 sm:block sm:text-sm lg:text-base">
                         Adaptive Tech Solutions Limited
                     </p>
 

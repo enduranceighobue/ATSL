@@ -43,7 +43,7 @@ export default function Navbar() {
   }, [isOpen]);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#291a06] shadow-md">
+    <header className="sticky top-0 z-50 w-full bg-[#291a06] ">
       <nav className="container mx-auto flex w-[90%] items-center">
         <Link to="/" aria-label="Home" className="block shrink-0">
           <div className="flex h-18 w-32 shrink-0 items-center overflow-hidden">
@@ -54,7 +54,7 @@ export default function Navbar() {
             />
           </div>
         </Link>
-        <p className="ml-3 min-w-0 font-['Fraunces'] text-xs font-normal italic leading-snug text-white sm:ml-4 sm:text-sm lg:text-base">
+        <p className="ml-3 hidden min-w-0 font-['Fraunces'] text-xs font-normal italic leading-snug text-white sm:ml-4 sm:block sm:text-sm lg:text-base">
           Adaptive Tech Solutions Limited
         </p>
 

@@ -1,6 +1,6 @@
 export const email = "contactus@atslng.com";
 
-export const offices = "Lagos, Abuja, Port Harcourt and Kaduna";
+export const offices = "Lagos | Abuja | Port Harcourt | Kaduna";
 
 export const phones = [
   {

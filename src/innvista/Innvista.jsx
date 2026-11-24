@@ -56,7 +56,7 @@ export default function Innvista() {
       <header
         className={`w-full z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#291a06] backdrop-blur-md shadow-lg"
+            ? "bg-[#291a06] shadow-lg"
             : "bg-[#291a06]"
         }`}
         role="banner"
