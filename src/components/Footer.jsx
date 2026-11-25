@@ -142,12 +142,7 @@ export default function Footer() {
                 >
                   Terms of Service
                 </a>
-                <a
-                  href="#"
-                  className="text-sm text-[#d2b48c] transition-colors hover:text-white"
-                >
-                  Cookie Policy
-                </a>
+               
               </div>
             </nav>
           </div>
