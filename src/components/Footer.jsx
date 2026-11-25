@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { FaInstagram, FaFacebookF, FaTiktok, FaYoutube } from "react-icons/fa6";
 import { email, offices } from "../data/company";
 
@@ -59,13 +59,25 @@ export default function Footer() {
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#cd9432]" aria-hidden="true" />
                 <span>{offices}</span>
               </p>
-              <a
-                href={`mailto:${email}`}
-                className="inline-flex items-center gap-2 transition-colors hover:text-white"
-              >
-                <Mail className="h-4 w-4 shrink-0 text-[#cd9432]" aria-hidden="true" />
-                {email}
-              </a>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                <a
+                  href={`mailto:${email}`}
+                  className="inline-flex items-center gap-2 transition-colors hover:text-white"
+                >
+                  <Mail className="h-4 w-4 shrink-0 text-[#cd9432]" aria-hidden="true" />
+                  {email}
+                </a>
+                <div className="inline-flex items-center gap-2">
+                  <Phone className="h-4 w-4 shrink-0 text-[#cd9432]" aria-hidden="true" />
+                  <a href="tel:+2349062015454" className="transition-colors hover:text-white">
+                    +234 906 201 5454
+                  </a>
+                  <span aria-hidden="true">|</span>
+                  <a href="tel:+2349113274710" className="transition-colors hover:text-white">
+                    +234 911 327 4710
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 

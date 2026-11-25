@@ -43,12 +43,12 @@ export default function Hero() {
         {/* Hero Content */}
         <div className="absolute inset-0 z-20">
           <div className="absolute bottom-10 left-1/2 w-[90%] -translate-x-1/2 text-white">
-            <div className="grid w-full max-w-md grid-cols-[minmax(0,1fr)_1.2rem_minmax(0,1fr)_1.2rem_minmax(0,1fr)] items-center font-['Outfit'] text-xs uppercase tracking-[0.18em] text-amber-400 max-[300px]:text-[10px] max-[300px]:tracking-normal sm:text-sm sm:tracking-[0.42em]">
-              <span className="justify-self-start">Seamless</span>
+            <div className="flex w-full max-w-md items-center justify-between font-['Outfit'] text-xs uppercase tracking-[0.18em] text-amber-400 max-[300px]:text-[10px] max-[300px]:tracking-normal sm:text-sm sm:tracking-[0.42em]">
+              <span>Seamless</span>
               <span className="text-center text-amber-500/80">|</span>
-              <span className="justify-self-center">Secure</span>
+              <span>Secure</span>
               <span className="text-center text-amber-500/80">|</span>
-              <span className="justify-self-end">Simple</span>
+              <span>Simple</span>
             </div>
 
             <h1 className="mt-0 grid w-full max-w-md grid-cols-[minmax(0,1fr)_1.2rem_minmax(0,1fr)_1.2rem_minmax(0,1fr)] font-['Fraunces'] text-xl font-normal italic leading-tight text-amber-100 sm:text-2xl">
