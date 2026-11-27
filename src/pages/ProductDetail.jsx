@@ -73,14 +73,16 @@ export default function ProductDetail({ slug }) {
                   >
                     Book a demo
                   </button>
-                  <button
-                    type="button"
-                    onClick={() => setVideoOpen(true)}
-                    className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[#291a06] px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
-                  >
-                    Watch video
-                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </button>
+                  {product.slug === "innvista" && (
+                    <button
+                      type="button"
+                      onClick={() => setVideoOpen(true)}
+                      className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[#291a06] px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
+                    >
+                      Watch video
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </button>
+                  )}
                 </div>
               </div>
 
@@ -117,14 +119,16 @@ export default function ProductDetail({ slug }) {
                 >
                   Book a demo
                 </button>
-                <button
-                  type="button"
-                  onClick={() => setVideoOpen(true)}
-                  className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[#291a06] px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
-                >
-                  Watch video
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </button>
+                {product.slug === "innvista" && (
+                  <button
+                    type="button"
+                    onClick={() => setVideoOpen(true)}
+                    className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[#291a06] px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
+                  >
+                    Watch video
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </button>
+                )}
               </div>
             </div>
           </section>

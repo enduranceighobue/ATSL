@@ -52,7 +52,9 @@ export default function Hero() {
             </div>
 
             <h1 className="mt-0 grid w-full max-w-md grid-cols-[minmax(0,1fr)_1.2rem_minmax(0,1fr)_1.2rem_minmax(0,1fr)] font-['Fraunces'] text-xl font-normal italic leading-tight text-amber-100 sm:text-2xl">
-              <span className="col-start-3 justify-self-center">solutions.</span>
+              <span className="col-start-3 translate-x-3 justify-self-center max-[300px]:translate-x-2 sm:translate-x-5">
+                solutions.
+              </span>
             </h1>
           </div>
 
