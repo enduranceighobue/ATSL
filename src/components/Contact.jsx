@@ -8,7 +8,7 @@ export default function Contact() {
         <>
             {/* <Navber /> */}
 
-            <section className="min-h-[calc(100svh-4.5rem)] bg-white px-4 pb-12 pt-6 sm:px-6 sm:pt-8">
+            <section className="min-h-[calc(100svh-4.5rem)] bg-white px-4 pb-12 pt-4 sm:px-6 sm:pt-6">
 
                 <div className="mx-auto w-full sm:w-11/12">
 

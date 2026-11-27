@@ -6,7 +6,6 @@ import CareerForm from "../components/CareerForm";
 export default function Careers() {
     useEffect(() => {
         document.title = "Careers | ATSL";
-        window.scrollTo(0, 0);
         return () => {
             document.title = "ATSL";
         };

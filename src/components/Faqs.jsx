@@ -25,7 +25,7 @@ export default function Faqs() {
           >
             FAQs
           </h2>
-          <div className="mt-3 flex justify-center">
+          <div className="mt-2 flex justify-center">
             <div className="h-0.5 w-16 bg-[#cd9432]" />
           </div>
         </header>

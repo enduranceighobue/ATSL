@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import Logo from "../assets/atsl.png";
 import { products } from "../data/products";
@@ -12,7 +12,6 @@ import Footer from "../components/Footer";
 import ProductPage from "../components/ProductPage";
 
 export default function Home() {
-    const location = useLocation();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isProductsOpen, setIsProductsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -34,16 +33,6 @@ export default function Home() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
-
-    useEffect(() => {
-        if (location.hash !== "#faqs") return undefined;
-
-        const frame = requestAnimationFrame(() => {
-            document.getElementById("faqs")?.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-
-        return () => cancelAnimationFrame(frame);
-    }, [location.hash]);
 
     useEffect(() => {
         if (!isProductsOpen) return undefined;

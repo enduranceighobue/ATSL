@@ -14,7 +14,6 @@ export default function ProductDetail({ slug }) {
   useEffect(() => {
     if (!product) return undefined;
     document.title = `${product.displayName} | ATSL`;
-    window.scrollTo(0, 0);
     return () => {
       document.title = "ATSL";
     };
